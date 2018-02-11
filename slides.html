@@ -99,10 +99,13 @@
     	<img src="framework/img/deardata.jpg" alt="">
     </section>
 
+<!--
     <section class="slide centered">
 		<p>A vector illustration of world population densities.</p>
     	<img src="framework/img/worldpop.png" alt="">
     </section>
+    Broken Image
+-->
 
 	<section class="slide centered">
     	<p>A live view of where NYC bikeshare bikes are travelling.</p>
@@ -113,7 +116,7 @@
       <script type="text/template">
         # Data Visualization
 
-		Remember that even with complex data, simple visualizations can be very meaningful. The goal is to represent data in small easily-consumed chunks. 
+        Remember that even with complex data, simple visualizations can be very meaningful. The goal is to represent data in small easily-consumed chunks.
 
       </script>
     </section>
@@ -149,7 +152,7 @@
 
         **CSS (Cascading Style Sheets)** is a _style sheet_ language used to create the presentation and look of a site.
 
-        <p class="example css">I'm a paragraph with <span style="color:purple;">style</span>.</p>
+        <p class="example css">I'm a paragraph with <span style="colour:purple;">style</span>.</p>
 
         **JavaScript** is a _programming_ language used to define the behavior and used to add functionality to a website.
 
@@ -167,10 +170,10 @@
       <script type="text/template">
         # What Is JavaScript?
 
+        * found all over the web
         * controls the *behavior* of HTML documents
-        * used to animate, hide or show items
-        * react to user input
-        * process data and more!
+        * reacts to user input and manipulates the page
+        * process data and much more!
 
         Here's what JavaScript looks like:
 
@@ -188,9 +191,9 @@
       <script type="text/template">
         # JavaScript is a Programming Language
 
-        Because JavaScript is a programming language, the structure and syntax include more complexities than HTML or CSS.
+        Since JavaScript is a programming language, the structure and syntax include more complexities than HTML or CSS.
 
-        The basic building blocks of programming include features such as *variables*, *functions*, *objects* or control structures such as *if* statements or *loops*.
+        The basic building blocks of programming include features such as *variables*, *functions*, *objects*, and control structures such as *if* statements and *loops*.
 
       </script>
     </section>
@@ -199,10 +202,11 @@
       <script type="text/template">
         #What is ProcessingJS?
 
-        * it is a cross-browser JavaScript *library*
-        * Designed for visual people, it's all about visualization
+        * Cross-browser JavaScript *library*
+        * Based on the Java library, Processing
+        * Designed to create visualizations, images, and interactive content
         * Open Source, free for everyone to use
-        * is still JavaScript at its core
+        * Still JavaScript at its core
 
         ProcessingJS ***is*** JavaScript so it's important to have an understanding of some basic JavaScript principles first.
 
@@ -218,7 +222,7 @@
 
         We'll be using this tool in the upcoming exercises to focus on getting used to the programming syntax.
 
-        This way, we can write programs without relying on HTML & CSS and learn some of the fundamental programming concepts first.
+        The console allows us to write programs without relying on HTML & CSS and learn some of the fundamental programming concepts first.
       </script>
     </section>
 
@@ -244,11 +248,12 @@
         You can open the console when viewing _any_ HTML page. In Chrome, there are different ways to open the Console tab.
 
         Keyboard shortcut:
-        `COMMAND + OPTION + J` (MAC)  / `CONTROL + SHIFT + J` (WINDOWS)
 
-        OR
+        Windows:  `CONTROL + SHIFT + J`
 
-        Select: `View > Developer > JavaScript Console`.
+        Mac: `COMMAND + OPTION + J`
+
+        If you prefer the mouse: `⋮ > More Tools > Developer Tools`
 
         Open the console in this slide presentation. Take a moment to practice opening and closing the console until you’re comfortable with it.
 
@@ -264,7 +269,7 @@
       <script type="text/template">
         # Class Exercise: Working with Numbers
 
-        In the console, after the `>` symbol, type your favorite number and press the enter/return key. You will see something like this:
+        In the console, after the `>` symbol, type your favourite number and press the enter/return key. You will see something like this:
 
         ![console number](framework/img/workshop/console-number.gif) <!-- .element: width="85%" -->
 
@@ -282,9 +287,11 @@
       <script type="text/template">
         # Class Exercise: Working with Text
 
-        You can also input text BUT when using text, make sure you include it between quotes (more on this soon).
+        You can also input text, BUT make sure you include it between quotes
 
         ![console string](framework/img/workshop/console-string.gif)<!-- .element: width="85%" -->
+
+        Text you work with in most programming languages is called a **string**  (more on this soon).
 
         The command you input into the console gets *evaluated* and a value is returned back to you.
       </script>
@@ -329,7 +336,10 @@
 
         Evaluate everything to the right of the equals sign, then assign the value to the variable on the left of the equals sign.
 
-        *See next slide for info about naming conventions <!-- .element: class="note" -->
+        What does this store?
+
+        `var sum = 2 + 2 * 2`
+
       </script>
     </section>
 
@@ -337,21 +347,23 @@
       <script type="text/template">
         #Variables: Naming conventions
 
-        * Cannot contain spaces:
+        * **Cannot contain spaces**
           * use camelCase for names with multiple words.
-          * every new word is capitalized
-          * the result looks kind of like `camelHumps`
-        * Cannot contain reserved symbols:
-          * math symbols (+, -, =, etc...)
-          * javascript-specific symbols ({, }, :, etc...)
-        * Cannot begin with:
-          * a digit (0 - 9)
-        * JavaScript is case sensitive
-          * so variable names are also case sensitive
-        * Use a descriptive names:
-        `var firstName;` ← Clear that first name will go here.
-        `var fn;`        ← Not as obvious as firstName.
-        `var x; `        ← Not clear at all.
+          * eg. `camelHumps`, `firstName`, `thatThingOverThereBehindTheBush`
+        * **Cannot be specific keywords**
+          * eg. `for`, `if`, `else`, `this`
+          * Check [here](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Lexical_grammar#Keywords) for a full list
+        * **Cannot contain reserved symbols**
+          * math symbols (+, -, =, etc.)
+          * Javascript-specific symbols ({, }, :, etc.)
+        * **Cannot begin with a digit (0 - 9)**
+          * `day1` is ok, `1day` is not
+        * **JavaScript is case sensitive**
+          * `coffee` is different from `Coffee`
+        * **Use a descriptive names**
+          * `var firstName;` ← Clear that first name will go here.
+          * `var fn;`        ← Not as obvious as firstName.
+          * `var x; `        ← Not clear at all.
       </script>
     </section>
 
@@ -400,7 +412,7 @@
 
         ```
         var greetingFull = greeting + " " + greetingTime + "!";
-        var greetingFull = Good + space + morning + exclamation mark
+        var greetingFull = [Good] + [space] + [morning] + [exclamation mark]
         var greetingFull = Good morning!
         ```
       </script>
@@ -408,9 +420,9 @@
 
     <section class="slide" data-markdown>
       <script type="text/template">
-        #Class exercise: Declare a Variable (15 minutes)
+        #Class exercise: Declare a Variable
 
-        Go through the next three slides on your own and get it work on your own, then we'll do it together as a class.
+        Go through this exercise on your own, then we'll do it together as a class.
 
         Let's create a variable called `favFood` and give it a value.
 
@@ -578,7 +590,7 @@ var fails = 'This string's value is not going to work!';
         It will look something like this:
 
         ```javascript
-        var currentYear = 2016;
+        var currentYear = 2018;
         var birthYear = 1979;
         var age = currentYear - birthYear;
 
@@ -654,7 +666,6 @@ var fails = 'This string's value is not going to work!';
         ```
 
         Multi-line comments are great for "hiding" large blocks of code so you can try something new without erasing your old code.
-        >**Careful:** Multi-line comments do not **nest**. That means you cannot place a multi-line comment inside another!
       </script>
     </section>
 
@@ -704,7 +715,7 @@ var fails = 'This string's value is not going to work!';
         var coffeeOrder = {
           drinkType: "latte",
           milk: "almond",
-          flavor: "caramel"
+          flavour: "caramel"
         }
         ```
 
@@ -733,7 +744,7 @@ var fails = 'This string's value is not going to work!';
         ```
         drinkType: "latte",
         milk: "almond",
-        flavor: "caramel"
+        flavour: "caramel"
         ```
 
         * the property name must start with a letter and contain no spaces
@@ -753,7 +764,7 @@ var fails = 'This string's value is not going to work!';
         var coffeeOrder = {
           drinkType: "latte",
           milk: "almond",
-          flavor: "caramel"
+          flavour: "caramel"
         }
         ```
 
@@ -774,7 +785,7 @@ var fails = 'This string's value is not going to work!';
         var coffeeOrder = {
           drinkType: "latte",
           milk: "almond",
-          flavor: "caramel"
+          flavour: "caramel"
         }
         ```
 
@@ -796,11 +807,11 @@ var fails = 'This string's value is not going to work!';
         var coffeeOrder = {
           drinkType: "latte",
           milk: "almond",
-          flavor: "caramel"
+          flavour: "caramel"
         }
         ```
 
-        > How would you access the value for `milk` and `flavor`? Try it out in the console.
+        > How would you access the value for `milk` and `flavour`? Try it out in the console.
       </script>
     </section>
 
@@ -829,7 +840,7 @@ var fails = 'This string's value is not going to work!';
 
         A `function` is a name for a **set** of commands or instructions.
 
-        When using a function, it executes all the commands contained within, making it easier to make the code repeat repetitive steps.
+        When using a function, it executes all the commands contained within, making it easier to make redo the same steps.
 
         Let's look at two functions, `alert()` and `prompt()`.  These come built into JavaScript, for free! Note the syntax, the parentheses `()`, must be included.
 
@@ -919,35 +930,14 @@ var fails = 'This string's value is not going to work!';
       <script type="text/template">
         # Functions & ProcessingJS
 
-        A function is one of the most powerful tools in JavaScript. ProcessingJS, as it turns out, is a giant object whith a whole pile of functions available to us.
+        A function is one of the most powerful tools in programming. ProcessingJS, as it turns out, is a giant object with a whole pile of functions available to us.
 
-        Remember, ProcessingJS is a <!-- .element: class="delayed" -->**JavaScript library**.
+        Remember, ProcessingJS is a **JavaScript library**.
 
-        It's library of functions/methods used to simplify your program. You can download it and use in your projects.  There's a lot more to JavaScript but this intro will help to get up and running with ProcessingJS!<!-- .element: class="delayed" -->
+        It's a collection of functions/methods that let you leverage the work others have done.
+
+        You can download it and use in your projects. There's a lot more to JavaScript, but this intro will help to get up and running with ProcessingJS!
       </script>
-    </section>
-
-    <section class="slide" data-markdown>
-      <script type="text/template">
-        # Getting started
-
-        The first step is telling your web page how to read Processing commands. That means importing the library. Throw this code at the end of your BODY tag.
-
-        ```
-        < canvas id="myProcessingProject"></ canvas>
-
-        < script src="processing.min.js">< /script>
-        ```
-
-        We add the CANVAS element to hold all of our Processing output. Instead of drawing HTML elements, we're going to be drawing to the canvas. 
-
-        You can find the file "processing.min.js" in the projects folder with the files you downloaded. That script tag will give us access to all the functions ProcessingJS has to offer. 
-
-      </script>
-    </section>
-
-    <section class="slide centered">
-      <img src="http://33.media.tumblr.com/2466ab981143fb18653f8f09bce061c7/tumblr_n982qbvyFQ1s5lf2ro1_400.gif" alt="">
     </section>
 
     <section class="slide" data-markdown>
@@ -955,7 +945,7 @@ var fails = 'This string's value is not going to work!';
         # What can ProcessingJS do?
 
         * Read data from files you've collected
-        * Visualize that data 
+        * Visualize that data
         * Animate your creations to respond to user clicks and hovers
         * and much more!
 
@@ -966,44 +956,92 @@ var fails = 'This string's value is not going to work!';
     </section>
 
     <section class="slide" data-markdown>
-
       <script type="text/template">
-       #Setting up ProcessingJS for the first time
+        # Getting started
 
-        Now that you have your SCRIPT tag in your HTML file to import processing, you can add another SCRIPT tag below that one and we can begin to write our first bits of ProcessingJS.
+        Let's open *starter.html* in Atom and try making a ProcessingJS app from scratch. You should have a basic HTML document to start.
 
-        To begin, we have to create an "instance" of Processing. An instance is basically a copy of the programming that is currently running. You can have more than one instance of Processing just as you can open more than one Word document at the same time.
+        ```html
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+          <title>My First ProcessingJS project</title>
+        </head>
+        <body>
+
+        </body>
+        </html>
 
         ```
-        function sketchProc(processing) {
-          processing.setup = function() {
-          //the code for your basic setup functions goes here
-          }
-          processing.draw = function() {
-            //The code to describe what you want to draw goes here.
-          };
-        }
-        var canvas = document.getElementById("myProcessingProject");
-        var processingInstance = new Processing(canvas, sketchProc);
+
+        The first step is telling your web page how to read ProcessingJS commands, which means **importing** the library.
+
+        Put the following code inside the `< body>` tags. **Be sure to save your changes!**
+
         ```
+
+        < canvas id="myProcessingProject">< /canvas>
+
+        < script src="processing.min.js">< /script>
+
+        ```
+
+        **Note**: You don't need a space after the first `<` and `canvas` or `script`. It's been done only in these slides for formatting reasons
+
+        We add the `< canvas>` element to hold all of our ProcessingJS output. Instead of drawing HTML elements, we're going to be drawing to the canvas.
+
+        The `src=` does the import and give us access to all the functions ProcessingJS has to offer. You can find **processing.min.js** in the projects folder with the files you downloaded.
+
+        Now try loading the page in the browser and see what you get.
 
       </script>
     </section>
 
-    <section class="slide">
-      <h1>The Draw function</h1>
-
-      <p>Just as we explored earlier, draw() is a method in Processing that actually adds elements to your canvas. It draws on your canvas.</p>
-
-      <p>The draw() method is not static, though. It keeps repeating over and over and over again. It's a constantly running loop. draw() is triggered 60 times per second, or once every 160 milliseconds.</p>
-
-      <p>This means you can play with changing rules that govern how your visualization draws itself. That will become a lot of fun later today.</p>
+    <section class="slide centered">
+      <img src="http://33.media.tumblr.com/2466ab981143fb18653f8f09bce061c7/tumblr_n982qbvyFQ1s5lf2ro1_400.gif" alt="">
     </section>
 
     <section class="slide" data-markdown>
+
+      <script type="text/template">
+       #Setting up ProcessingJS for the first time
+
+        Now that you have your `< script>` tag to import ProcessingJS, you can add another set of `< script>` tags to form foundation for ProcessingJS.
+
+        Copy the following code into your file
+        ```
+        < script>
+          function sketchProc(processing) {
+            processing.setup = function() {
+            //the code for your basic setup functions goes here
+            }
+            processing.draw = function() {
+            //The code to describe what you want to draw goes here.
+            };
+          }
+          var canvas = document.getElementById("myProcessingProject");
+          var processingInstance = new Processing(canvas, sketchProc);
+        </ script>
+        ```
+
+        1. We make a function called `sketchProc` which is where we'll do most of our work to draw things. Right now it contains starter methods, `setup()` and `draw()`. More on these later.
+
+        2. We create our `canvas`. Just like with real art, the canvas is where we'll be actually drawing stuff.
+
+        3. Finally, we add the "instance" of ProcessingJS and connect it to our `canvas` and `sketchProc`. An instance is basically a copy of the program you want to run.
+
+        You can have more than one instance of ProcessingJS just as you can open more than one Word document at the same time.
+      </script>
+    </section>
+
+    <section class="slide" data-markdown>
+      <script type="text/template">
       #Your first drawing
 
-      With your draw() function in place, you can now begin to add commands that will actually draw on the canvas. Directly below the comment, start playing with the rect() method. 
+      Let's add a rectangle to the canvas
+
+      1. Add `processing.size(700,500);` to the `processing.setup` function
+      2. Add `processing.rect(10,20,130,260);` to the `processing.draw` function
 
       ```
       function sketchProc(processing) {
@@ -1020,8 +1058,12 @@ var fails = 'This string's value is not going to work!';
       // attaching the sketchProc function to the canvas
       var processingInstance = new Processing(canvas, sketchProc);
       ```
+
+      Save your changes and refresh the page in the browser
+    </script>
     </section>
 
+<!-- Unnecessary
     <section class="slide" data-markdown data-toc>
       <script type="text/template">
         #What's actually happening here
@@ -1037,9 +1079,9 @@ var fails = 'This string's value is not going to work!';
         ```
         var processingInstance = new Processing(canvas, sketchProc);
         ```
-        This starts up a new Processing program and sends it two things: Your canvas, and the name of the function that will control how it behaves. 
+        This starts up a new ProcessingJS program and sends it two things: Your canvas, and the name of the function that will control how it behaves.
 
-        This sends us back to the top of our sketchProc function to do some setup tasks: 
+        This sends us back to the top of our sketchProc function to do some setup tasks:
 
         ```javascript
         function sketchProc(processing) {
@@ -1057,15 +1099,18 @@ var fails = 'This string's value is not going to work!';
 
       </script>
     </section>
+-->
 
     <section class="slide" data-markdown>
       <script type="text/template">
         #Setup() and Draw()
 
-        These two functions can be confusing at first. Setup(), though, is only ever run once. It does the basic construction, sets your overall preferences, sets the size of your canvas and sets the background color. All your "initial states", as the lingo goes, go in the setup() function. 
+        Let's break down what's happening so far.
 
-        The draw() function includes everything that's added on top of the initial state. In our case, that includes drawing a rectangle on top of our canvas background.
-  
+        `setup()` is only run once and is the first thing ProcessingJS runs. It does the basic construction, sets the size and background colour of the canvas, and any other configurations that should be present by default.
+
+        The `draw()` method includes everything that's added on top of the initial state created by `setup()`. In our case, that includes drawing a rectangle on top of our canvas background.
+
         ```
         function sketchProc(processing) {
             processing.setup = function() {
@@ -1078,42 +1123,59 @@ var fails = 'This string's value is not going to work!';
             };
           }
         ```
-        
+
+      </script>
+    </section>
+
+<!--TODO Stop Motion YT video example-->
+    <section class="slide" data-markdown>
+      <script type="text/template">
+      #The Draw method
+
+      Just as we explored earlier, `draw()` is how ProcessingJS that actually puts stuff on your canvas.
+
+      The `draw()` method is not static, though. It is constantly drawing to the screen, updating 60 times per second, or once every 160 milliseconds. The constant updating and redrawing is how animation or movies work.
+
+      Right now we've only drawn a single rectangle, but we'll see later how this can be changed on the fly.
       </script>
     </section>
 
     <section class="slide" data-markdown>
       <script type="text/template">
-        #Coordinates are weird
+        #Understanding Coordinates
 
-        A lot of the elements you draw in Processing will use a coordinate system to tell them where they should be. These often look like your rect() method on the previous slides. 
+        A lot of the elements you draw in ProcessingJS will use a coordinate system to tell them where they should be. These often look like your rect() method on the previous slides.
 
         ```
           processing.rect(10,20,130,260);
         ```
 
-        These are x and y values, then the width and height values. So the top-left corner of the rectangle is at 10 pixels from the left of the canvas edge (the x value) and 20 pixels from the top of the canvas edge (the y value). 
+        These are x and y values, then the width and height values. So the top-left corner of the rectangle is at 10 pixels from the left of the canvas edge (the x value) and 20 pixels from the top of the canvas edge (the y value).
 
-        Then the lower-right corner of the rectangle is at 130 pixels from the left start position, and 260 pixels from the top start position. 
+        Then the lower-right corner of the rectangle is at 130 pixels from the left start position, and 260 pixels from the top start position.
 
-        Similarly, you can have an ellipse: 
+        Similarly, you can have an ellipse:
 
         ```
-         ellipse(50, 50, 25, 25); 
+         ellipse(50, 50, 25, 25);
         ```
-        
-        The first set of coordinates is the center of the ellipse (x and y) and the second two numbers are how tall and wide it is. 
+
+        The first set of coordinates is the center of the ellipse (x and y) and the second two numbers are how tall and wide it is.
+
+        Go ahead and try playing around with these numbers and see the effects. Remember to **save and refresh** the page each time!
+
+        <!--TODO Consider adding image illustrating coorindate system-->
 
       </script>
     </section>
 
     <section class="slide" data-markdown>
       <script type="text/template">
-        #Exercise: Layer your rectangles (~10 mins) 
+        #Exercise: Layer your rectangles (~10 mins)
 
-        Build four rectangles, each of which overlap each other so they look like a row of dominoes that have fallen over. You can stagger them horizontally or vertically. Or, if you want a bigger challenge, it can be both.
+        Draw four rectangles that overlap each other so they look like a row of dominoes that have fallen over from a top-down view. You can stagger them horizontally or vertically. Or, if you want a bigger challenge, it can be both.
 
-        Extra challenge: Put a circle inside each rectangle ... kind of like a domino dot.
+        Extra challenge: Put a circle inside each rectangle, kind of like a domino dot.
 
       </script>
     </section>
@@ -1122,7 +1184,7 @@ var fails = 'This string's value is not going to work!';
       <script type="text/template">
         #Exercise answer
 
-        The trick here is just to increase the start coordinates and end coordinates by a little bit each time you build each rectangle. 
+        The trick here is just to increase the start coordinates and end coordinates by a little bit each time you build each rectangle.
 
         ```
         processing.rect(10,20,40,70);
@@ -1130,8 +1192,8 @@ var fails = 'This string's value is not going to work!';
         processing.rect(50,20,80,70);
         processing.rect(70,20,100,70);
         ```
-        
-        Or, you can stagger them both ways by incrementing both 
+
+        Or, you can stagger them both ways by incrementing both
         parameters.
 
         ```
@@ -1148,28 +1210,29 @@ var fails = 'This string's value is not going to work!';
       <script type="text/template">
         #Getting more complicated
 
-        Up to now, we've known in theory that the draw() function runs 60 times per second and that can be used to animate your visualizations, but with our static rect() that's a little difficult to see. 
+        Up to now, we've known in theory that the `draw()` function runs 60 times per second and can be used to animate your visualizations, but with our current `rect()` doesn't make use of it yet.
 
-        Let's update that draw() function with our knowledge of JavaScript to make it a little more dynamic. 
+        Let's update `draw()` to make it a little more dynamic.
       </script>
     </section>
-
+<!--TODO Clean up all of the exercises notes and files, separate solution files
+Update exercises to actually make sense-->
     <section class="slide" data-markdown>
       <script type="text/template">
-        #Challenge: The case of the growing rect() (code-along)
+        #Exercise: Showing Some Growth (code-along)
 
-        JavaScript let's you establish global variables that can start off as one value, but adjust as the program runs. So at the top of your sketchProc function, add these two variables:
+        Now that we can draw rectangles, let's make them grow in size.
+
+        JavaScript let's you establish global variables that can start off as one value, but can be adjusted as the program runs.
+
+        Start by adding these two variables above your `sketchProc` function:
 
         ```
-        var wide = 10;
-        var high = 20;
+        var width = 10;
+        var height = 20;
+        function sketchProc(processing) {
+        ⋮
         ```
-
-        1. Draw a small rectangle on your page
-        2. Make the rectangle grow on its own
-
-        (the solution is the GrowingRectangleChallenge folder in your course notes)
-        
 
       </script>
     </section>
@@ -1178,18 +1241,16 @@ var fails = 'This string's value is not going to work!';
       <script type="text/template">
         #Solution: The case of the growing rect()
 
-        The trick here is that variables can be updated after you set them, which is part of what makes them very powerful. 
+        The trick here is that variables can be updated after you set them, which is part of what makes them very powerful.
 
-        So at the bottom of your draw() function, you can include this: 
+        So at the bottom of your draw() function, you can include this:
 
         ```
           wide = wide + 0.1;
           high = high + 0.2;
         ```
 
-        You can change those numbers to change how quickly your rectangle grows. 
-
-        
+        You can change those numbers to change how quickly your rectangle grows.
 
       </script>
     </section>
@@ -1198,13 +1259,13 @@ var fails = 'This string's value is not going to work!';
       <script type="text/template">
         # Order of operations
 
-        Let's look back at that ellipse we started drawing earlier. 
+        Let's look back at that ellipse we started drawing earlier.
 
         ```
         processing.ellipse(50, 50, 25, 25);
         ```
 
-        Add that right after your rect() inside your draw function to make your draw function read like this: 
+        Add that right after your rect() inside your draw function to make your draw function read like this:
 
         ```
         processing.rect(10,20,wide,high);
@@ -1213,11 +1274,11 @@ var fails = 'This string's value is not going to work!';
         high = high + 0.2;
         ```
 
-        Now run your app. 
+        Now run your app.
 
-        Notice that the ellipse is always on top of the rectangle. This is because every time the app runs, 60 times per second, it draws the rectangle, then draws the ellipse. The rectangle comes first in the script, so it is drawn first. The ellipse comes second so it is drawn second. 
+        Notice that the ellipse is always on top of the rectangle. This is because every time the app runs, 60 times per second, it draws the rectangle, then draws the ellipse. The rectangle comes first in the script, so it is drawn first. The ellipse comes second so it is drawn second.
 
-        Flip the order of the ellipse and the rect to see what happens. 
+        Flip the order of the ellipse and the rect to see what happens.
       </script>
     </section>
 
@@ -1225,7 +1286,7 @@ var fails = 'This string's value is not going to work!';
       <script type="text/template">
         # Working with colour
 
-        The processing.fill() method allows you to set the fill colour of any element you draw on your canvas. Once you set fill(), though, it applies to all draw commands that come after it. All colour values are supplied as RGB values. 
+        The processing.fill() method allows you to set the fill colour of any element you draw on your canvas. Once you set fill(), though, it applies to all draw commands that come after it. All colour values are supplied as RGB values.
 
         ```
         processing.fill(255,0,0);
@@ -1233,7 +1294,7 @@ var fails = 'This string's value is not going to work!';
         processing.ellipse(50, 50, 25, 25);
         ```
 
-        The above makes both the rectangle and the ellipse bright red. But: 
+        The above makes both the rectangle and the ellipse bright red. But:
 
         ```
         processing.fill(255,0,0);
@@ -1242,9 +1303,9 @@ var fails = 'This string's value is not going to work!';
         processing.ellipse(50, 50, 25, 25);
         ```
 
-        This makes a red rectangle and a green ellipse on top of it. 
+        This makes a red rectangle and a green ellipse on top of it.
 
-        Similarly, in setup() you can set processing.background() as an rgb value to shift it away from this dull default gray. 
+        Similarly, in setup() you can set processing.background() as an rgb value to shift it away from this dull default gray.
 
         ```
         processing.background(15,200,80);
@@ -1256,22 +1317,22 @@ var fails = 'This string's value is not going to work!';
       <script type="text/template">
         # Adding interactivity
 
-        One of the easiest ways to add interactivity to your Processing visualization is by tracking mouse movements over the page (or finger presses, as is often the case). Processing comes with a few methods that help with this. 
+        One of the easiest ways to add interactivity to your ProcessingJS visualization is by tracking mouse movements over the page (or finger presses, as is often the case). ProcessingJS comes with a few methods that help with this.
 
         ```
           var mouseXposition = processing.mouseX;
           var mouseYposition = processing.mouseY;
         ```
 
-        You can use these values to identify where your shapes should appear on your canvas. For example, let's change the center of where our circle is drawn to make it match our mouse position. The circle can therefore track our mouse movements. 
+        You can use these values to identify where your shapes should appear on your canvas. For example, let's change the center of where our circle is drawn to make it match our mouse position. The circle can therefore track our mouse movements.
 
         In your draw() function, adjust your ellipse command to:
-        
+
         ```
           processing.ellipse(processing.mouseX, processing.mouseY, 25, 25);
         ```
-        
-        Now run your app. 
+
+        Now run your app.
 
       </script>
     </section>
@@ -1280,26 +1341,26 @@ var fails = 'This string's value is not going to work!';
       <script type="text/template">
         #Well that was weird
 
-        The circle repeated itself all over the page! Goodness, that's not what we want. 
+        The circle repeated itself all over the page! Goodness, that's not what we want.
 
-        The reason it did this is because processing repeats the draw() function 60 times per second, but it never clears away what it already drew on the canvas unless you explicitly tell it to do so. Right now, we have all of our original draw() commands executing one on top of the other. 
+        The reason it did this is because processing repeats the draw() function 60 times per second, but it never clears away what it already drew on the canvas unless you explicitly tell it to do so. Right now, we have all of our original draw() commands executing one on top of the other.
 
-        The fix this, add this one line to the top of your draw() command. 
+        The fix this, add this one line to the top of your draw() command.
 
         ```
           processing.background(15,200,80);
         ```
 
-        You can reset the background of your app on each cycle so none of it draws on top of itself, making for a much cleaner, and more magic, look. 
+        You can reset the background of your app on each cycle so none of it draws on top of itself, making for a much cleaner, and more magic, look.
 
       </script>
     </section>
 
     <section class="slide" data-markdown>
       <script type="text/template">
-        # If statements in Processing
-        
-        The other part of what you can do inside your draw() function is write IF statements: conditionals that test all 60 times per second to see if they should run one way or the other. 
+        # If statements in ProcessingJS
+
+        The other part of what you can do inside your draw() function is write IF statements: conditionals that test all 60 times per second to see if they should run one way or the other.
 
         This way, we can set a cap on how much our rectangle can grow.
 
@@ -1321,11 +1382,11 @@ var fails = 'This string's value is not going to work!';
       <script type="text/template">
         #Behavioural IF statements
 
-        You can also use IF statements to test where the user's mouse is and define behaviour based on that position. 
+        You can also use IF statements to test where the user's mouse is and define behaviour based on that position.
 
-        For example, you could test to see if the circle you're positioning around the mouse is inside the box, and change the color of either the circle or the box because of that position. 
+        For example, you could test to see if the circle you're positioning around the mouse is inside the box, and change the colour of either the circle or the box because of that position.
 
-        This extensive list of conditions (four of them, one for each side of our square), asks if the mouse is inside the boundaries of our rectangle. 
+        This extensive list of conditions (four of them, one for each side of our square), asks if the mouse is inside the boundaries of our rectangle.
 
         ```
         if (processing.mouseX > 10 && processing.mouseX < (wide + 10) && processing.mouseY > 20 && processing.mouseY < (high + 20)) {
@@ -1343,15 +1404,15 @@ var fails = 'This string's value is not going to work!';
 
     <section class="slide" data-markdown>
       <script type="text/template">
-        #Exercise: Nests are where ideas hatch (~15 mins) 
+        #Exercise: Nests are where ideas hatch (~15 mins)
 
-        Expanding on these concepts, what if a circle only appeared where your mouse is, and followed your mouse around, when your mouse entered one of the rectangles? 
+        Expanding on these concepts, what if a circle only appeared where your mouse is, and followed your mouse around, when your mouse entered one of the rectangles?
 
-        1. Build two rectangles. 
+        1. Build two rectangles.
         2. Make your rectangles change fill colour when your mouse enters them.
-        3. Make a circle appear over your mouse when your mouse enters either rectangle. 
+        3. Make a circle appear over your mouse when your mouse enters either rectangle.
 
-        Stretch goal: What if your circles changed size depending on how far into the rectangle they are? That would be cool. 
+        Stretch goal: What if your circles changed size depending on how far into the rectangle they are? That would be cool.
 
       </script>
     </section>
@@ -1360,9 +1421,9 @@ var fails = 'This string's value is not going to work!';
       <script type="text/template">
         #Exercise answer
 
-        The trick here is to nest your if statements inside your if statements. That can be hard to read, but it also becomes very powerful once you wrap your head around what's happening. 
+        The trick here is to nest your if statements inside your if statements. That can be hard to read, but it also becomes very powerful once you wrap your head around what's happening.
 
-        This is just one way to do it and you may have come up with another way that also makes sense. The only thing that matters is that it works and it meets your goals. 
+        This is just one way to do it and you may have come up with another way that also makes sense. The only thing that matters is that it works and it meets your goals.
 
         Note that the trick here is that you technically detect where your rectangle is going to be before you even draw it, which can be a bit of a mind bend.
 
@@ -1397,15 +1458,15 @@ var fails = 'This string's value is not going to work!';
 
         Changing the size of the circle depending on where your mouse is means you have to modify that one line: processing.ellipse.
 
-        Instead of a static value of 25 for the height and width, we can pay attention to where the mouse is. Then we can incorporate that number into a calculation to determine the new height. That might look like: 
+        Instead of a static value of 25 for the height and width, we can pay attention to where the mouse is. Then we can incorporate that number into a calculation to determine the new height. That might look like:
 
         ```
         25 + (processing.mouseY / 3)
-        ``` 
+        ```
 
-        The 25 is our base value, the smallest we want the circle to be. Then we add the mouseY to it. The / 3 is just to make the difference less jarring. It's stylistic. Mess with it and see what happens. 
+        The 25 is our base value, the smallest we want the circle to be. Then we add the mouseY to it. The / 3 is just to make the difference less jarring. It's stylistic. Mess with it and see what happens.
 
-        The full solution is: 
+        The full solution is:
 
 
       ```
@@ -1443,16 +1504,16 @@ var fails = 'This string's value is not going to work!';
     <section class="slide" data-markdown>
       <script type="text/template">
         # Mailchimp
-        
-        Open the project folder in the course files. 
+
+        Open the project folder in the course files.
 
         Look at Data.txt.
 
-        There 5 numbers in it. They are separated by commas, which is a common way to store data like this. 
+        There 5 numbers in it. They are separated by commas, which is a common way to store data like this.
 
         The five numbers refer to deliveries, bounces, opens, clicks, unsubscribers, in a single Mailchimp report.
 
-        Tip: This project is best done in the Firefox browser. 
+        Tip: This project is best done in the Firefox browser.
       </script>
     </section>
 
@@ -1460,11 +1521,11 @@ var fails = 'This string's value is not going to work!';
       <script type="text/template">
         #Telling processing how to access the data
 
-        Processing comes with a method that allows you to read data from a text file and store it in a variable. 
+        ProcessingJS comes with a method that allows you to read data from a text file and store it in a variable.
 
         We don't want to do this every single time the draw() function runs, 60 times per second, we just want to do it once at the top of the program so we don't spend so much energy reading data.
 
-        We can do this before we even run our setup() function: 
+        We can do this before we even run our setup() function:
 
         ```
           var myData = processing.loadStrings('data.txt')
@@ -1472,11 +1533,11 @@ var fails = 'This string's value is not going to work!';
           console.log(mailChimpData);
         ```
 
-        This is steps. The first step is to grab the text data. Then we need to actually split it into an array so we can treat each value in it separately. 
+        This is steps. The first step is to grab the text data. Then we need to actually split it into an array so we can treat each value in it separately.
 
-        The split() function allows you to specify the comma as the separating character, splitting each value from each other using the commas. 
+        The split() function allows you to specify the comma as the separating character, splitting each value from each other using the commas.
 
-        The console.log() at the end allows you to see the final list of data, presented as a nice clean array. 
+        The console.log() at the end allows you to see the final list of data, presented as a nice clean array.
 
       </script>
     </section>
@@ -1487,7 +1548,7 @@ var fails = 'This string's value is not going to work!';
 
         Once you import your data, you can draw different shapes on your canvas in accordance with your data. You can also control the size of those drawings by using the data as attributes like "width" and "height."
 
-        As before, you should create a setup() function that will establish the base of your canvas: 
+        As before, you should create a setup() function that will establish the base of your canvas:
 
         ```
           processing.setup = function() {
@@ -1503,7 +1564,7 @@ var fails = 'This string's value is not going to work!';
       <script type="text/template">
         #Looping through your data
 
-        Now, just like the last example, we can setup a draw() function that will loop 60 times per second to draw our data. 
+        Now, just like the last example, we can setup a draw() function that will loop 60 times per second to draw our data.
 
         ```
         processing.draw = function() {
@@ -1517,7 +1578,7 @@ var fails = 'This string's value is not going to work!';
 
         ```
 
-        This places five circles of varying widths directly on top of each other, with the centres of each of them at 100 pixels in from the left, and 100 pixels down from the top. 
+        This places five circles of varying widths directly on top of each other, with the centres of each of them at 100 pixels in from the left, and 100 pixels down from the top.
 
       </script>
     </section>
@@ -1526,9 +1587,9 @@ var fails = 'This string's value is not going to work!';
       <script type="text/template">
         #But wait a second...
 
-        Don't we want them to be hollow so we can see through them? And shouldn't they be spread out a bit? 
+        Don't we want them to be hollow so we can see through them? And shouldn't they be spread out a bit?
 
-        Yes, yes they should be. 
+        Yes, yes they should be.
       </script>
     </section>
 
@@ -1536,16 +1597,16 @@ var fails = 'This string's value is not going to work!';
       <script type="text/template">
         #Stroke colours
 
-        So far we've dealt with colours in terms of their fill. But you can also determine their stroke colour - the thin line that forms the outer edge of the circle. You can also determine that line's width. 
+        So far we've dealt with colours in terms of their fill. But you can also determine their stroke colour - the thin line that forms the outer edge of the circle. You can also determine that line's width.
 
-        Enter: The stroke values. 
+        Enter: The stroke values.
 
         ```
         processing.stroke(255,255,255);
         processing.noFill();
         ```
 
-        These two lines will make sure there isn't any fill in your circles, and they'll give it a white stroke. Go ahead and pick your favourite color to use.
+        These two lines will make sure there isn't any fill in your circles, and they'll give it a white stroke. Go ahead and pick your favourite colour to use.
 
       </script>
     </section>
@@ -1554,7 +1615,7 @@ var fails = 'This string's value is not going to work!';
       <script type="text/template">
         #Scooch over a bit
 
-        We want our circles to all live next to each other, not on top of each other. Friendly neighbours, not roommates. 
+        We want our circles to all live next to each other, not on top of each other. Friendly neighbours, not roommates.
 
         So in our loop, we can change the center of each circle individually by adding another variable. Before the loop starts -- inside your draw() function but outside of the loop drawing your circles -- add this variable:
 
@@ -1562,13 +1623,13 @@ var fails = 'This string's value is not going to work!';
         var toTheLeftToTheLeft = 75;
         ```
 
-        Then you can change your ellipsis() command to include that variable on the x-axis -- the horizontal axis. 
+        Then you can change your ellipsis() command to include that variable on the x-axis -- the horizontal axis.
 
         ```
         processing.ellipse(toTheLeftToTheLeft, 100, mailChimpData[i], mailChimpData[i]);
         ```
 
-        Then, at the bottom of your loop, change that variable for the next circle in line to be drawn. 
+        Then, at the bottom of your loop, change that variable for the next circle in line to be drawn.
 
         ```
         toTheLeftToTheLeft = toTheLeftToTheLeft + 130;
@@ -1581,7 +1642,7 @@ var fails = 'This string's value is not going to work!';
       <script type="text/template">
         #All together now
 
-        At this point, your complete draw() function should look something like this: 
+        At this point, your complete draw() function should look something like this:
 
         ```
         processing.draw = function() {
@@ -1603,11 +1664,11 @@ var fails = 'This string's value is not going to work!';
       <script type="text/template">
         # Responding to the user
 
-        Now we have several circles on our page, but isn't it more fun when they show the user something when they hover over them? 
+        Now we have several circles on our page, but isn't it more fun when they show the user something when they hover over them?
 
-        Of course it is. 
+        Of course it is.
 
-        This part is a little complicated, but if you place this function just above your setup() function, but inside your sketchProc() function, you can test to see if your cursor is inside each circle. 
+        This part is a little complicated, but if you place this function just above your setup() function, but inside your sketchProc() function, you can test to see if your cursor is inside each circle.
 
         ```
         function overCircle(CenterX, CenterY, diameter) {
@@ -1629,7 +1690,7 @@ var fails = 'This string's value is not going to work!';
       <script type="text/template">
         # Responding to the user
 
-        That function exists to test if your cursor is inside the circle. Now we need to call it inside our draw() function so we can use it. Update your draw function to call that function each time a circle is drawn: 
+        That function exists to test if your cursor is inside the circle. Now we need to call it inside our draw() function so we can use it. Update your draw function to call that function each time a circle is drawn:
 
         ```
         if (overCircle(toTheLeftToTheLeft, 100, mailChimpData[i])) {
@@ -1650,18 +1711,18 @@ var fails = 'This string's value is not going to work!';
       <script type="text/template">
         # Labels
 
-        It's starting to look really great. Now let's just add some labels so we know what we're looking at. 
+        It's starting to look really great. Now let's just add some labels so we know what we're looking at.
 
-        Working with text in Processing is super easy. There's a method called text() that handles all the text you need to place in your graphic, as well as it's positioning. All in one go. 
+        Working with text in ProcessingJS is super easy. There's a method called text() that handles all the text you need to place in your graphic, as well as it's positioning. All in one go.
 
-        So before you adjust your toTheLeftToTheLeft variable, but after you add your ellipsis, add these two lines: 
+        So before you adjust your toTheLeftToTheLeft variable, but after you add your ellipsis, add these two lines:
 
         ```
         processing.fill(255,255,255);
         processing.text('Test Text', toTheLeftToTheLeft - 25, 200);
         ```
 
-        We add the -25 so that we can backtrack the text to center it under the circle. The 200 is how far from the top of the canvas the text is. "Test Text" is the text that will actually appear in your graphic. 
+        We add the -25 so that we can backtrack the text to center it under the circle. The 200 is how far from the top of the canvas the text is. "Test Text" is the text that will actually appear in your graphic.
 
       </script>
     </section>
@@ -1670,21 +1731,21 @@ var fails = 'This string's value is not going to work!';
       <script type="text/template">
         # Labels that mean something
 
-        Instead of "test text" it would be helpful if our text described the circle it was under. To do that, we'll need an array of labels to use, in the same order as our circle data. 
+        Instead of "test text" it would be helpful if our text described the circle it was under. To do that, we'll need an array of labels to use, in the same order as our circle data.
 
         So if our circle data is:
-        
+
         ```
         231,85,87,16,2
         ```
 
-        Then our labels need to be: 
+        Then our labels need to be:
 
         ```
         deliveries, bounces, opens, clicks, unsubscribers
         ```
 
-        So at the top of your sketchProc() function, where you set up your data import, you can add this one line to establish your labels: 
+        So at the top of your sketchProc() function, where you set up your data import, you can add this one line to establish your labels:
 
         ```
         var labels = ['Deliveries', 'Bounces', 'Opens', 'Clicks', 'Unsubscribers']
@@ -1696,17 +1757,17 @@ var fails = 'This string's value is not going to work!';
       <script type="text/template">
         #Add the right labels
 
-        Now instead of "Test text" you can insert your appropriate label. Change your text() command to: 
+        Now instead of "Test text" you can insert your appropriate label. Change your text() command to:
 
         ```
         processing.text(labels[i], toTheLeftToTheLeft - 25, 200);
 
         ```
-        The labels[i] will refers to master array of labels at the top of the program, and the i refers to the loop through your circle construction. 
+        The labels[i] will refers to master array of labels at the top of the program, and the i refers to the loop through your circle construction.
 
-        So just as your app builds its first circle, it grabs its first label. As it builds its second circle, it grabs the second label. And so on. 
+        So just as your app builds its first circle, it grabs its first label. As it builds its second circle, it grabs the second label. And so on.
 
-        Loops are great. 
+        Loops are great.
 
       </script>
     </section>

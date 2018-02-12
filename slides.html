@@ -1134,7 +1134,7 @@ var fails = 'This string's value is not going to work!';
 
       Just as we explored earlier, `draw()` is how ProcessingJS that actually puts stuff on your canvas.
 
-      The `draw()` method is not static, though. It is constantly drawing to the screen, updating 60 times per second, or once every 160 milliseconds. The constant updating and redrawing is how animation or movies work.
+      The `draw()` method is not static, though. It is constantly drawing to the screen, updating 60 times per second, or once every 16.66 milliseconds. The constant updating and redrawing is how animation or movies work.
 
       Right now we've only drawn a single rectangle, but we'll see later how this can be changed on the fly.
       </script>
@@ -1144,27 +1144,35 @@ var fails = 'This string's value is not going to work!';
       <script type="text/template">
         #Understanding Coordinates
 
-        A lot of the elements you draw in ProcessingJS will use a coordinate system to tell them where they should be. These often look like your rect() method on the previous slides.
+        A lot of the elements you draw in ProcessingJS will use a coordinate system to tell them where they should be. We've already seen this in action when we made our rectangle.
 
         ```
           processing.rect(10,20,130,260);
         ```
 
-        These are x and y values, then the width and height values. So the top-left corner of the rectangle is at 10 pixels from the left of the canvas edge (the x value) and 20 pixels from the top of the canvas edge (the y value).
-
-        Then the lower-right corner of the rectangle is at 130 pixels from the left start position, and 260 pixels from the top start position.
-
-        Similarly, you can have an ellipse:
+        Put in another way
 
         ```
-         ellipse(50, 50, 25, 25);
+          processing.rect([Starting X position],[Starting Y position],[Width],[Height]);
+        ```
+
+        If you think of the whole canvas, the position `(0,0)` is in the **top-left** corner.
+
+        Our rectangle with starting position of `(10,20)` has its top-left corner 10px to the right of the left side of the canvas and 20px below the top of the canvas.
+
+        The lower-right corner of the rectangle extends 130px from the X start position, and 260px from the Y start position.
+
+        Similarly, try adding an ellipse:
+
+        ```
+         processing.ellipse(50, 50, 25, 25);
         ```
 
         The first set of coordinates is the center of the ellipse (x and y) and the second two numbers are how tall and wide it is.
 
         Go ahead and try playing around with these numbers and see the effects. Remember to **save and refresh** the page each time!
 
-        <!--TODO Consider adding image illustrating coorindate system-->
+        <!--TODO Add image illustrating coorindate system-->
 
       </script>
     </section>
@@ -1175,7 +1183,7 @@ var fails = 'This string's value is not going to work!';
 
         Draw four rectangles that overlap each other so they look like a row of dominoes that have fallen over from a top-down view. You can stagger them horizontally or vertically. Or, if you want a bigger challenge, it can be both.
 
-        Extra challenge: Put a circle inside each rectangle, kind of like a domino dot.
+        **Extra challenge:** Put a circle inside each rectangle, kind of like a domino dot.
 
       </script>
     </section>
@@ -1202,6 +1210,8 @@ var fails = 'This string's value is not going to work!';
         processing.rect(50,60,80,110);
         processing.rect(70,80,100,130);
         ```
+
+        Delete these lines before continuing, we won't need them for the next exercise.
 
       </script>
     </section>
@@ -1233,24 +1243,49 @@ Update exercises to actually make sense-->
         function sketchProc(processing) {
         ⋮
         ```
+      </script>
+    </section>
+
+    <section class="slide" data-markdown>
+      <script type="text/template">
+        #Exercise: Showing Some Growth (cont.)
+
+        We've set some variables for the dimensions of the rectangle, but how do we use them for our rectangle?
+
+        Recall how we made our first rectangle and what each number represents
+
+        ```
+          processing.rect(10,20,130,260);
+          processing.rect([Starting X position],[Starting Y position],[Width],[Height]);
+        ```
+
+        What should we do with `width` and `height`?
+
+        `processing.rect(10,20,width,height);`<!-- .element: class="delayed" -->
+
+        We just insert them into the values we use to make our rectangle!<!-- .element: class="delayed" -->
 
       </script>
     </section>
 
     <section class="slide" data-markdown>
       <script type="text/template">
-        #Solution: The case of the growing rect()
+        #Exercise: Showing Some Growth (cont.)
 
-        The trick here is that variables can be updated after you set them, which is part of what makes them very powerful.
+        The next trick is realizing that variables can be updated after they've been set, which is part of why they're so useful.
 
-        So at the bottom of your draw() function, you can include this:
+        After the rectangle creation in your `draw()` function, you can include this:
 
         ```
-          wide = wide + 0.1;
-          high = high + 0.2;
+          width = width + 0.1;
+          height = height + 0.2;
         ```
 
-        You can change those numbers to change how quickly your rectangle grows.
+        Save your changes and refresh the page to see what happens.
+
+        Remember that `draw()` updates 60 times a second. With our new code, we're telling ProcessingJS to increment the `width` and `height`, which occurs with each update and changes the shape of our rectangle.
+
+        You can adjust the numbers to change how quickly your rectangle grows.
 
       </script>
     </section>
@@ -1265,20 +1300,20 @@ Update exercises to actually make sense-->
         processing.ellipse(50, 50, 25, 25);
         ```
 
-        Add that right after your rect() inside your draw function to make your draw function read like this:
+        Add that right after your `rect()` inside your draw function to make your draw function read like this:
 
         ```
-        processing.rect(10,20,wide,high);
+        processing.rect(10,20,width,height);
         processing.ellipse(50, 50, 25, 25);
-        wide = wide + 0.1;
-        high = high + 0.2;
+        width = width + 0.1;
+        height = height + 0.2;
         ```
 
         Now run your app.
 
-        Notice that the ellipse is always on top of the rectangle. This is because every time the app runs, 60 times per second, it draws the rectangle, then draws the ellipse. The rectangle comes first in the script, so it is drawn first. The ellipse comes second so it is drawn second.
+        Notice that the ellipse is always on top of the rectangle. Every time `draw()` updates, it draws the rectangle **then** draws the ellipse on top as that's the order the code is given.
 
-        Flip the order of the ellipse and the rect to see what happens.
+        Flip the order of the ellipse and the rectangle to see what happens.
       </script>
     </section>
 
@@ -1286,30 +1321,35 @@ Update exercises to actually make sense-->
       <script type="text/template">
         # Working with colour
 
-        The processing.fill() method allows you to set the fill colour of any element you draw on your canvas. Once you set fill(), though, it applies to all draw commands that come after it. All colour values are supplied as RGB values.
+        The `processing.fill()` method allows you to set the fill colour of any element you draw on your canvas. Once you set `fill()`, though, it applies to all draw commands that come after it. All colour values are supplied as RGB values.
 
         ```
         processing.fill(255,0,0);
-        processing.rect(10,20,wide,high);
+        processing.rect(10,20,width,height);
         processing.ellipse(50, 50, 25, 25);
         ```
 
-        The above makes both the rectangle and the ellipse bright red. But:
+        The above makes both the rectangle and the ellipse bright red.
+
+        Try this instead:
 
         ```
         processing.fill(255,0,0);
-        processing.rect(10,20,wide,high);
+        processing.rect(10,20,width,height);
         processing.fill(0,255,0);
         processing.ellipse(50, 50, 25, 25);
         ```
 
         This makes a red rectangle and a green ellipse on top of it.
 
-        Similarly, in setup() you can set processing.background() as an rgb value to shift it away from this dull default gray.
+        Similarly, in `setup()` you can set `processing.background()` with RGB values to shift it away from this dull default gray.
 
         ```
         processing.background(15,200,80);
         ```
+
+        You can use a [colour picker](https://www.w3schools.com/colors/colors_picker.asp) to help you figure out the RGB values for the colours you want to display.
+
       </script>
     </section>
 
@@ -1324,15 +1364,15 @@ Update exercises to actually make sense-->
           var mouseYposition = processing.mouseY;
         ```
 
-        You can use these values to identify where your shapes should appear on your canvas. For example, let's change the center of where our circle is drawn to make it match our mouse position. The circle can therefore track our mouse movements.
+        `mouseX` and `mouseY` represent X and Y coordinates of where the mouse is currently pointing. We can use these coordinates when drawing our shapes.
 
-        In your draw() function, adjust your ellipse command to:
+        Let's make a circle that tracks our mouse movements.
+
+        In your `draw()` function, adjust your ellipse command to:
 
         ```
           processing.ellipse(processing.mouseX, processing.mouseY, 25, 25);
         ```
-
-        Now run your app.
 
       </script>
     </section>
@@ -1343,7 +1383,7 @@ Update exercises to actually make sense-->
 
         The circle repeated itself all over the page! Goodness, that's not what we want.
 
-        The reason it did this is because processing repeats the draw() function 60 times per second, but it never clears away what it already drew on the canvas unless you explicitly tell it to do so. Right now, we have all of our original draw() commands executing one on top of the other.
+        ProcessingJS repeats the `draw()` function 60 times per second, but it was never told to clear away the stuff it drew in the past. Each circle gets drawn and left behind as we move our mouse.
 
         The fix this, add this one line to the top of your draw() command.
 
@@ -1351,7 +1391,7 @@ Update exercises to actually make sense-->
           processing.background(15,200,80);
         ```
 
-        You can reset the background of your app on each cycle so none of it draws on top of itself, making for a much cleaner, and more magic, look.
+        This line resets the background of your app each cycle, effectively "wiping" the canvas each time and makes for a much cleaner experience.
 
       </script>
     </section>
@@ -1360,20 +1400,41 @@ Update exercises to actually make sense-->
       <script type="text/template">
         # If statements in ProcessingJS
 
-        The other part of what you can do inside your draw() function is write IF statements: conditionals that test all 60 times per second to see if they should run one way or the other.
+        The other part of what you can do inside your `draw()` function is write `if` statements: conditionals that test all 60 times per second to see if they should run one way or the other.
 
-        This way, we can set a cap on how much our rectangle can grow.
+        We'll use a conditional now to set a cap on how much our rectangle can grow.
+
+        Replace your current width and height incrementing code with this
 
         ```
-        if (high >= 480) {
+        if (height >= 480) {
           console.log('all done');
         } else {
-          wide = wide + 0.1;
-          high = high + 0.2;
+          width = width + 0.1;
+          height = height + 0.2;
         }
         ```
 
-        Tip: We use 480 because our canvas is 500 pixels tall and we start the rectangle 20 pixels from the top. 500 - 20 = 480
+        To break it down:
+
+        ```
+        if (height >= 480) {
+            console.log('all done');
+        ```
+
+        Here we check on the current update of `draw()` if the height is greater or equal to 480px.
+
+        If so, we do nothing since we've reached our max size and want to stop growing. We print a message to the console that we can check later.
+
+        ```
+        else {
+          width = width + 0.1;
+          height = height + 0.2;
+        }
+        ```
+        Otherwise, we perform the same code as before, growing the size of the rectangle.
+
+        **Tip:** We use 480 because our canvas is 500 pixels tall and we start the rectangle 20 pixels from the top. 500 - 20 = 480
 
       </script>
     </section>
@@ -1382,21 +1443,21 @@ Update exercises to actually make sense-->
       <script type="text/template">
         #Behavioural IF statements
 
-        You can also use IF statements to test where the user's mouse is and define behaviour based on that position.
+        You can also use `if` statements to test where the user's mouse is and define behaviour based on that position.
 
         For example, you could test to see if the circle you're positioning around the mouse is inside the box, and change the colour of either the circle or the box because of that position.
 
         This extensive list of conditions (four of them, one for each side of our square), asks if the mouse is inside the boundaries of our rectangle.
 
         ```
-        if (processing.mouseX > 10 && processing.mouseX < (wide + 10) && processing.mouseY > 20 && processing.mouseY < (high + 20)) {
+        if (processing.mouseX > 10 && processing.mouseX < (width + 10) && processing.mouseY > 20 && processing.mouseY < (height + 20)) {
           processing.fill(255,0,0);
         } else {
           processing.fill(0,0,255);
         }
         ```
 
-        Tip: We use the +10 and the +20 on the conditions to accomodate the starting position of our rectangle, otherwise we would be measuring from the top corner of our canvas, not the top corner of our rectangle.
+        **Tip:** We use the +10 and the +20 on the conditions to accomodate the starting position of our rectangle, otherwise we would be measuring from the top corner of our canvas, not the top corner of our rectangle.
 
       </script>
     </section>
@@ -1428,24 +1489,24 @@ Update exercises to actually make sense-->
         Note that the trick here is that you technically detect where your rectangle is going to be before you even draw it, which can be a bit of a mind bend.
 
       ```
-      if (processing.mouseX > 10 && processing.mouseX < (wide + 10) && processing.mouseY > 20 && processing.mouseY < (high + 20)) {
+      if (processing.mouseX > 10 && processing.mouseX < (width + 10) && processing.mouseY > 20 && processing.mouseY < (height + 20)) {
       processing.fill(255,0,0);
-      processing.rect(10,20,wide,high);
+      processing.rect(10,20,width,height);
       processing.fill(0,255,0);
       processing.ellipse(processing.mouseX, processing.mouseY, 25, 25);
       } else {
       processing.fill(0,0,255);
-      processing.rect(10,20,wide,high);
+      processing.rect(10,20,width,height);
       }
 
-      if (processing.mouseX > 10 && processing.mouseX < (wide + 10) && processing.mouseY > 80 && processing.mouseY < (high + 80)) {
+      if (processing.mouseX > 10 && processing.mouseX < (width + 10) && processing.mouseY > 80 && processing.mouseY < (height + 80)) {
       processing.fill(0,255,0);
-      processing.rect(10,80,wide,high);
+      processing.rect(10,80,width,height);
       processing.fill(255,0,0);
       processing.ellipse(processing.mouseX, processing.mouseY, 25, 25);
       } else {
       processing.fill(0,0,255);
-      processing.rect(10,80,wide,high);
+      processing.rect(10,80,width,height);
       }
       ```
 
@@ -1470,24 +1531,24 @@ Update exercises to actually make sense-->
 
 
       ```
-      if (processing.mouseX > 10 && processing.mouseX < (wide + 10) && processing.mouseY > 20 && processing.mouseY < (high + 20)) {
+      if (processing.mouseX > 10 && processing.mouseX < (width + 10) && processing.mouseY > 20 && processing.mouseY < (height + 20)) {
       processing.fill(255,0,0);
-      processing.rect(10,20,wide,high);
+      processing.rect(10,20,width,height);
       processing.fill(0,255,0);
       processing.ellipse(processing.mouseX, processing.mouseY, 25 + (processing.mouseY / 3), 25 + (processing.mouseY / 3));
       } else {
       processing.fill(0,0,255);
-      processing.rect(10,20,wide,high);
+      processing.rect(10,20,width,height);
       }
 
-      if (processing.mouseX > 10 && processing.mouseX < (wide + 10) && processing.mouseY > 80 && processing.mouseY < (high + 80)) {
+      if (processing.mouseX > 10 && processing.mouseX < (width + 10) && processing.mouseY > 80 && processing.mouseY < (height + 80)) {
       processing.fill(0,255,0);
-      processing.rect(10,80,wide,high);
+      processing.rect(10,80,width,height);
       processing.fill(255,0,0);
       processing.ellipse(processing.mouseX, processing.mouseY, 25 + (processing.mouseY / 3), 25 + (processing.mouseY / 3));
       } else {
       processing.fill(0,0,255);
-      processing.rect(10,80,wide,high);
+      processing.rect(10,80,width,height);
       }
       ```
 

@@ -343,6 +343,8 @@
       </script>
     </section>
 
+<!--TODO Common mistakes slide-->
+
     <section class="slide nested-list" data-markdown>
       <script type="text/template">
         #Variables: Naming conventions
@@ -1472,13 +1474,13 @@ Update exercises to actually make sense-->
 
         Now to combine and expand on these ideas. Try to get as far as you can!
 
-        1. Make two rectangles that don't overlap each other
+        1. Make two rectangles that don't overlap each other. You decide how big and where they're positioned, just make sure they're inside the canvas!
 
-        2. Make the rectangles fill with colour, but only when the mouse is inside them.
+        2. Make the rectangles fill with colour, but only when the mouse is inside them. Choose [any colour](https://www.w3schools.com/colors/colors_picker.asp) you like
 
-        3. Make a circle follow your mouse, but only when the mouse is inside a rectangle.
+        3. Make a circle follow your mouse, but only when the mouse is inside a rectangle. Size and colour are up to you
 
-        Stretch goal: What if the colour of the rectangles changed based on where the mouse was positioned?
+        Stretch goal: What if the size of the circle changed based on where the mouse was positioned?
 
       </script>
     </section>
@@ -1487,11 +1489,18 @@ Update exercises to actually make sense-->
       <script type="text/template">
         #Exercise answer
 
-        The trick here is to nest your if statements inside your if statements. That can be hard to read, but it also becomes very powerful once you wrap your head around what's happening.
+        1. Here's a guaranteed way to choose coordinates that won't overlap
 
-        Note that the trick here is that you technically detect where your rectangle is going to be before you even draw it, which can be a bit of a mind bend.
+          * Pick a set of coordinates along with width and height eg. **(10, 20, 100, 200)**
+          * Calculate where the **bottom-right** corner will be by adding the width to X and the height to Y. eg. (10 + 100, 20 + 200) -> **(110, 220)**
+          * For the second rectangle, choose X and Y such that at least one of them is greater than the corresponding value from the previous step. eg. (115, 100), (30, 300), and (150, 250) are all fine
+          * Choose the width and height for this second rectangle, as long as it will still fit in the canvas
 
-      ```
+        2. To check that the mouse is inside one of the rectangles, we compare the `mouseX` and `mouseY` against the four boundaries of where the rectangles will be. We set up a couple of big `if` statements with multiple checks. After that, we just choose our colour before drawing our rectangle.
+
+        3. We can squeeze the drawing of the circle into the box colouring and drawing since we care about the same condition: being inside one of the rectangle. Just make sure to change the `processing.fill` right before you draw the circle!
+
+```
       if (processing.mouseX > 10 && processing.mouseX < (width + 10) && processing.mouseY > 20 && processing.mouseY < (height + 20)) {
       processing.fill(255,0,0);
       processing.rect(10,20,width,height);
@@ -1520,40 +1529,20 @@ Update exercises to actually make sense-->
       <script type="text/template">
         #Stretch goal answer
 
-        Changing the size of the circle depending on where your mouse is means you have to modify that one line: processing.ellipse.
+        Remember that `processing.fill` uses the RGB system, which is a set of three numbers ranging from 0 to 255.
 
-        Instead of a static value of 25 for the height and width, we can pay attention to where the mouse is. Then we can incorporate that number into a calculation to determine the new height. That might look like:
+        Coordinates are also just numbers, so we can plug these directly into RGB. We'll need three numbers in total, so pick whatever you want for the last one.
 
-        ```
-        25 + (processing.mouseY / 3)
-        ```
+        `25 + (processing.mouseY / 3)`
+
 
         The 25 is our base value, the smallest we want the circle to be. Then we add the mouseY to it. The / 3 is just to make the difference less jarring. It's stylistic. Mess with it and see what happens.
 
-        The full solution is:
+        ```
+        processing.ellipse(processing.mouseX, processing.mouseY, 25 + (processing.mouseY / 3), 25 + (processing.mouseY / 3));
+        ```
 
-
-      ```
-      if (processing.mouseX > 10 && processing.mouseX < (width + 10) && processing.mouseY > 20 && processing.mouseY < (height + 20)) {
-      processing.fill(255,0,0);
-      processing.rect(10,20,width,height);
-      processing.fill(0,255,0);
-      processing.ellipse(processing.mouseX, processing.mouseY, 25 + (processing.mouseY / 3), 25 + (processing.mouseY / 3));
-      } else {
-      processing.fill(0,0,255);
-      processing.rect(10,20,width,height);
-      }
-
-      if (processing.mouseX > 10 && processing.mouseX < (width + 10) && processing.mouseY > 80 && processing.mouseY < (height + 80)) {
-      processing.fill(0,255,0);
-      processing.rect(10,80,width,height);
-      processing.fill(255,0,0);
-      processing.ellipse(processing.mouseX, processing.mouseY, 25 + (processing.mouseY / 3), 25 + (processing.mouseY / 3));
-      } else {
-      processing.fill(0,0,255);
-      processing.rect(10,80,width,height);
-      }
-      ```
+        **Extra Bonus**: How would you also make the colour vary depending on mouse position?
 
       </script>
     </section>
@@ -1565,19 +1554,20 @@ Update exercises to actually make sense-->
       </script>
     </section>
 
-    <!--Update project to do medal count visualization
+    <!--Update project to do olympic medal count visualization
         Start with large hardcoded CSV of data in a script tag
           Alternatively create an XMLHttpRequest in the template
           Do the read during setup
         Print table as a base, illustrate boringness
+        Start with only one country (Canada)
         Create a bar chart template (draw axes, derive labels from data file)
-        First part is to create rectangles that scale based on total medal counts (read a line, grab label, calc sum)
-        Stretch one is to build chunk out each bar chart by medal types and colour accordingly when hovered
-          Alternatively make them toggles that switch when clicked
-        Stretch two is to animate the bars growing initially
-        Stretch three is to use images in place of the country labels
-
-
+          Set base starting positions for each bar in bar chart
+        1. Create rectangles that scale based on total medal counts (read a line, grab label, calc sum, draw size upwards)
+        2. Chunk out each bar chart by medal types and colour accordingly when hovered
+        3. Animate the bars growing initially
+        4. Loop over data set and make bar for each country
+        5. Use images in place of the country labels
+        6. Make each bar toggles that switch when clicked
     -->
 
     <section class="slide" data-markdown>

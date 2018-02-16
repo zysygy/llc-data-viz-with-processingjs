@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>My First ProcessingJS project</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<canvas id="myProcessingProject"></canvas>
+
+<script src="processing.min.js"></script>
+<script>
+
+function sketchProc(processing) {
+  	var medalData =
+    [
+      ["Norway", 6, 8, 5, 19],
+      ["Germany",	9, 2,	4, 15],
+      ["Netherlands",	6, 5, 2, 13],
+      ["Canada", 4,	5, 4,	13],
+      ["United States",	5, 1, 2, 8]
+    ];
+
+
+  	/*function overRect(CenterX, CenterY, diameter) {
+  	  var disX = CenterX - processing.mouseX;
+  	  var disY = CenterY - processing.mouseY;
+  	  if(Math.sqrt(Math.pow(disX, 2) + Math.pow(disY, 2)) < diameter/2 ) {
+  	    return true;
+  	  } else {
+        return false;
+  	  }
+  	}*/
+
+  	processing.setup = function() {
+  		//the code for your basic setup functions goes here
+  		processing.size(800,600);
+  		processing.background(255,255,255);
+      processing.strokeWeight(5);
+      processing.line(100, 50, 100, 549);
+      processing.line(102, 550, 750, 550);
+      processing.fill(0);
+      processing.text("Canada", 25, 225);
+  	}
+
+
+    processing.draw = function() {
+        processing.strokeWeight(2);
+        processing.fill(255);
+        processing.rect(102, 200, 300, 50);
+    		//The Code you want to draw in goes here.
+    		//processing.background(0,23,0);
+    }
+  }
+	var canvas = document.getElementById("myProcessingProject");
+	// attaching the sketchProc function to the canvas
+	var processingInstance = new Processing(canvas, sketchProc);
+
+</script>
+
+</body>
+</html>

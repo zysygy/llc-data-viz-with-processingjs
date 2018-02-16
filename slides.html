@@ -1557,57 +1557,35 @@ Update exercises to actually make sense-->
     <!--Update project to do olympic medal count visualization
         Start with large hardcoded CSV of data in a script tag
           Alternatively create an XMLHttpRequest in the template
-          Do the read during setup
+          Do the read during setup (Include this in template?)
         Print table as a base, illustrate boringness
-        Start with only one country (Canada)
-        Create a bar chart template (draw axes, derive labels from data file)
-          Set base starting positions for each bar in bar chart
-        1. Create rectangles that scale based on total medal counts (read a line, grab label, calc sum, draw size upwards)
+        //Template//
+        Create a bar chart shell (draw axes, derive labels from data file)
+          Set base starting positions for each bar in bar chart, store in variables
+        1. Create rectangle that scale based on total medal counts (read a line, grab label, calc sum, draw size upwards). One country to start
         2. Chunk out each bar chart by medal types and colour accordingly when hovered
-        3. Animate the bars growing initially
-        4. Loop over data set and make bar for each country
+        3. Loop over data set and make bar for each country
+        4. Animate the bars growing initially
         5. Use images in place of the country labels
         6. Make each bar toggles that switch when clicked
     -->
 
     <section class="slide" data-markdown>
       <script type="text/template">
-        # Mailchimp
-
-        Open the project folder in the course files.
-
-        Look at Data.txt.
-
-        There 5 numbers in it. They are separated by commas, which is a common way to store data like this.
-
-        The five numbers refer to deliveries, bounces, opens, clicks, unsubscribers, in a single Mailchimp report.
-
-        Tip: This project is best done in the Firefox browser.
+        <!--Read Data Here-->
       </script>
     </section>
 
     <section class="slide" data-markdown>
       <script type="text/template">
-        #Telling processing how to access the data
 
-        ProcessingJS comes with a method that allows you to read data from a text file and store it in a variable.
+      <!--Barchart work here, start drawing basic rectangle-->
+      </script>
+    </section>
 
-        We don't want to do this every single time the draw() function runs, 60 times per second, we just want to do it once at the top of the program so we don't spend so much energy reading data.
-
-        We can do this before we even run our setup() function:
-
-        ```
-          var myData = processing.loadStrings('data.txt')
-          var mailChimpData = myData[0].split(',')
-          console.log(mailChimpData);
-        ```
-
-        This is steps. The first step is to grab the text data. Then we need to actually split it into an array so we can treat each value in it separately.
-
-        The split() function allows you to specify the comma as the separating character, splitting each value from each other using the commas.
-
-        The console.log() at the end allows you to see the final list of data, presented as a nice clean array.
-
+    <section class="slide" data-markdown>
+      <script type="text/template">
+      <!--Stack bars on top of each other, change colour according to-->
       </script>
     </section>
 
@@ -1848,47 +1826,37 @@ Update exercises to actually make sense-->
          </script>
     </section>
 
-    <section class="slide" data-toc>
-      <h1>Extra resources</h1>
+    <section class="slide" data-markdown>
+      <script type="text/template">
+      #Extra resources
 
-      <p>To keep you going, here are some extra links relating to ProcessingJS that you may find useful.</p>
+      To keep you going, here are some extra links relating to ProcessingJS that you may find useful.</p>
 
-      <ul>
-        <li>
-          <a href="http://processingjs.org/reference/">The complete resource guide, all the methods.</a>
-        </li>
-        <li>
-          <a href="http://processingjs.org/download/">Download the latest version.</a>
-        </li>
-        <li>
-          <a href="http://processingjs.org/articles/jsQuickStart.html">Quick start guide for ProcessingJS for people already familiar with JavaScript.</a>
-        </li>
-        <li>
-          <a href="https://processing.org/examples/rollover.html">A guide for handling mouse-over events.</a>
-        </li>
-      </ul>
+      * [Complete resource to all the methods](http://processingjs.org/reference/)
+      * [Download the latest version](http://processingjs.org/download/)
+      * [Quick start guide for ProcessingJS for people already familiar with JavaScript](http://processingjs.org/articles/jsQuickStart.html)
+      * [A guide for handling mouse-over events](https://processing.org/examples/rollover.html)
+
+      <!--
+      JS Tutorial
+      Project Ideas and examples
+      Other libraries
+      Web tutorials
+      -->
+      </script>
     </section>
 
-    <section class="slide" data-toc>
-      <h1>Resources for data visualization</h1>
+    <section class="slide" data-markdown>
+      <script type="text/template">
+        #Resources for data visualization
 
-      <p>Data visualization is a complex job, and creativity drives most of it. The technical side is just code. Here are some great resources to get your brain in the right gear.</p>
+        Data visualization is a complex job, and creativity drives most of it. The technical side is just code. Here are some great resources to get your brain in the right gear.</p>
 
-      <ul>
-        <li>
-          <a href="http://www.datavizcatalogue.com/">The Data Visualization Catalogue</a>
-        </li>
-        <li>
-          <a href="http://jsdatav.is/visuals.html">Data visualization with JavaScript</a>
-        </li>
-        <li>
-          <a href="https://github.com/d3/d3/wiki/Gallery">Data visualizations with D3</a>
-        </li>
-        <li>
-          <a href="http://www.dear-data.com/">Dear Data: Everyday data visualizations</a>
-        </li>
-      </ul>
-
+        [The Data Visualization Catalogue](http://www.datavizcatalogue.com/)
+        [Data visualization with JavaScript](http://jsdatav.is/visuals.html)
+        [Data visualizations with D3](https://github.com/d3/d3/wiki/Gallery)
+        [Dear Data: Everyday data visualizations](http://www.dear-data.com/)
+      </script>
     </section>
 
 
@@ -1906,7 +1874,7 @@ Update exercises to actually make sense-->
         <li><a href="http://twitter.com/">@twitter</a></li>
       </ul> -->
 
-      <p class="attribution">Slide presentation created by <a href="http://wolfewylie.com">William Wolfe-Wylie</a> based on <a href="https://github.com/LeaVerou/csss">Lea Verou's SlideShow</a> and <a href="http://lab.hakim.se/reveal-js/">reveal.js</a>.</p>
+      <p class="attribution">Slide presentation created by <a href="http://wolfewylie.com">William Wolfe-Wylie</a> based on <a href="https://github.com/LeaVerou/csss">Lea Verou's SlideShow</a> and <a href="http://lab.hakim.se/reveal-js/">reveal.js</a>. Modified by Allen Chen</p>
     </section>
 
   </main><!-- cls main section -->

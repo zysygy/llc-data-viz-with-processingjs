@@ -3,30 +3,30 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Mailchimp</title>
+  <title>Nesting Challenge</title>
 </head>
 <body>
 <canvas id="myProcessingProject"></canvas>
 <script src="processing.min.js"></script>
+
 <script>
-
 function sketchProc(processing) {
-
 	processing.setup = function() {
 		//the code for your basic setup functions goes here
-		processing.size(700,500);
-		processing.background(0,0,0);
+		processing.size(500,500);
+		processing.background(15,200,80);
 	}
 
 	processing.draw = function() {
 		//The Code you want to draw in goes here.
-		processing.background(0,0,0);
+		processing.background(15,200,80);
 	};
 }
 
 	var canvas = document.getElementById("myProcessingProject");
 	// attaching the sketchProc function to the canvas
 	var processingInstance = new Processing(canvas, sketchProc);
+
 </script>
 
 </body>

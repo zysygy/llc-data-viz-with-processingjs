@@ -691,6 +691,7 @@ var fails = 'This string's value is not going to work!';
       </script>
     </section>
 
+<!--Objects are never used in the exercise, leaving out for future revision
     <section class="slide title" data-markdown>
       <script type="text/template">
         #Variable Types
@@ -817,6 +818,7 @@ var fails = 'This string's value is not going to work!';
       </script>
     </section>
 
+-->
     <section class="slide" data-markdown>
       <script type="text/template">
         # Variable Types
@@ -889,7 +891,7 @@ var fails = 'This string's value is not going to work!';
         The above example creates a new **function** called `sayAnything` but similar to variables, nothing will happen until the function is **called**.
       </script>
     </section>
-
+<!--TODO Add slide references to relevant areas-->
     <section class="slide" data-markdown>
       <script type="text/template">
         #Calling a function
@@ -1181,6 +1183,15 @@ var fails = 'This string's value is not going to work!';
 
     <section class="slide" data-markdown>
       <script type="text/template">
+      #Example of Coordinates in Action
+
+      ![Coordinate Example](framework/img/workshop/coords.png)
+
+      </script>
+    </section>
+
+    <section class="slide" data-markdown>
+      <script type="text/template">
         #Exercise: Layer your rectangles (~10 mins)
 
         Draw four rectangles that overlap each other so they look like a row of dominoes that have fallen over from a top-down view. You can stagger them horizontally or vertically. Or, if you want a bigger challenge, it can be both.
@@ -1233,17 +1244,17 @@ Update exercises to actually make sense-->
       <script type="text/template">
         #Exercise: Showing Some Growth (code-along)
 
-        Now that we can draw rectangles, let's make them grow in size.
+        Now that we can draw rectangles, let's make them grow in size. Let's go open *index.html* inside the *GrowingRectangleChallenge* folder
 
         JavaScript let's you establish global variables that can start off as one value, but can be adjusted as the program runs.
 
-        Start by adding these two variables above your `sketchProc` function:
+        Start by adding these two variables just inside your `sketchProc` function:
 
         ```
-        var width = 10;
-        var height = 20;
         function sketchProc(processing) {
-        ⋮
+          var width = 10;
+          var height = 20;
+          ⋮
         ```
       </script>
     </section>
@@ -1472,6 +1483,8 @@ Update exercises to actually make sense-->
 
         #Exercise: Nests are where ideas hatch (~15 mins)
 
+        Next challenge. Open up *index.html* inside the *nestingChallenge* folder
+
         Now to combine and expand on these ideas. Try to get as far as you can!
 
         1. Make two rectangles that don't overlap each other. You decide how big and where they're positioned, just make sure they're inside the canvas!
@@ -1529,14 +1542,13 @@ Update exercises to actually make sense-->
       <script type="text/template">
         #Stretch goal answer
 
-        Remember that `processing.fill` uses the RGB system, which is a set of three numbers ranging from 0 to 255.
+        Remember that `mouseY` is just a number at the end of the day.
 
-        Coordinates are also just numbers, so we can plug these directly into RGB. We'll need three numbers in total, so pick whatever you want for the last one.
+        Coordinates are also just numbers, so we can plug in `mouseY`.
 
         `25 + (processing.mouseY / 3)`
 
-
-        The 25 is our base value, the smallest we want the circle to be. Then we add the mouseY to it. The / 3 is just to make the difference less jarring. It's stylistic. Mess with it and see what happens.
+        The 25 is our base value, the smallest we want the circle to be. Then we add the mouseY to it. The `/ 3` is just to make the difference less jarring, but you can pick whatever you like.
 
         ```
         processing.ellipse(processing.mouseX, processing.mouseY, 25 + (processing.mouseY / 3), 25 + (processing.mouseY / 3));
@@ -1576,7 +1588,7 @@ Update exercises to actually make sense-->
 
         Open the project folder in the course files.
 
-        Look at Data.txt.
+        Look at `Data.txt`
 
         There 5 numbers in it. They are separated by commas, which is a common way to store data like this.
 
@@ -1592,9 +1604,9 @@ Update exercises to actually make sense-->
 
         ProcessingJS comes with a method that allows you to read data from a text file and store it in a variable.
 
-        We don't want to do this every single time the draw() function runs, 60 times per second, we just want to do it once at the top of the program so we don't spend so much energy reading data.
+        We don't want to do this every single time the `draw()` function runs, 60 times per second, we just want to do it once at the top of the program so we don't spend so much energy reading data.
 
-        We can do this before we even run our setup() function:
+        We can do this before we even run our `setup()` function:
 
         ```
           var myData = processing.loadStrings('data.txt')
@@ -1604,9 +1616,9 @@ Update exercises to actually make sense-->
 
         This is steps. The first step is to grab the text data. Then we need to actually split it into an array so we can treat each value in it separately.
 
-        The split() function allows you to specify the comma as the separating character, splitting each value from each other using the commas.
+        The `split()` function allows you to specify the comma as the separating character, splitting each value from each other using the commas.
 
-        The console.log() at the end allows you to see the final list of data, presented as a nice clean array.
+        The `console.log()` at the end allows you to see the final list of data, presented as a nice clean array.
 
       </script>
     </section>
@@ -1617,7 +1629,7 @@ Update exercises to actually make sense-->
 
         Once you import your data, you can draw different shapes on your canvas in accordance with your data. You can also control the size of those drawings by using the data as attributes like "width" and "height."
 
-        As before, you should create a setup() function that will establish the base of your canvas:
+        As before, you should create a `setup()` function that will establish the base of your canvas:
 
         ```
           processing.setup = function() {
@@ -1692,7 +1704,7 @@ Update exercises to actually make sense-->
         var toTheLeftToTheLeft = 75;
         ```
 
-        Then you can change your ellipsis() command to include that variable on the x-axis -- the horizontal axis.
+        Then you can change your `ellipse()` command to include that variable on the x-axis -- the horizontal axis.
 
         ```
         processing.ellipse(toTheLeftToTheLeft, 100, mailChimpData[i], mailChimpData[i]);
@@ -1848,47 +1860,37 @@ Update exercises to actually make sense-->
          </script>
     </section>
 
-    <section class="slide" data-toc>
-      <h1>Extra resources</h1>
+    <section class="slide" data-markdown>
+      <script type="text/template">
+      #Extra resources
 
-      <p>To keep you going, here are some extra links relating to ProcessingJS that you may find useful.</p>
+      To keep you going, here are some extra links relating to ProcessingJS that you may find useful.</p>
 
-      <ul>
-        <li>
-          <a href="http://processingjs.org/reference/">The complete resource guide, all the methods.</a>
-        </li>
-        <li>
-          <a href="http://processingjs.org/download/">Download the latest version.</a>
-        </li>
-        <li>
-          <a href="http://processingjs.org/articles/jsQuickStart.html">Quick start guide for ProcessingJS for people already familiar with JavaScript.</a>
-        </li>
-        <li>
-          <a href="https://processing.org/examples/rollover.html">A guide for handling mouse-over events.</a>
-        </li>
-      </ul>
+      * [Complete resource to all the methods](http://processingjs.org/reference/)
+      * [Download the latest version](http://processingjs.org/download/)
+      * [Quick start guide for ProcessingJS for people already familiar with JavaScript](http://processingjs.org/articles/jsQuickStart.html)
+      * [A guide for handling mouse-over events](https://processing.org/examples/rollover.html)
+
+      <!--
+      JS Tutorial
+      Project Ideas and examples
+      Other libraries
+      Web tutorials
+      -->
+      </script>
     </section>
 
-    <section class="slide" data-toc>
-      <h1>Resources for data visualization</h1>
+    <section class="slide" data-markdown>
+      <script type="text/template">
+        #Resources for data visualization
 
-      <p>Data visualization is a complex job, and creativity drives most of it. The technical side is just code. Here are some great resources to get your brain in the right gear.</p>
+        Data visualization is a complex job, and creativity drives most of it. The technical side is just code. Here are some great resources to get your brain in the right gear.</p>
 
-      <ul>
-        <li>
-          <a href="http://www.datavizcatalogue.com/">The Data Visualization Catalogue</a>
-        </li>
-        <li>
-          <a href="http://jsdatav.is/visuals.html">Data visualization with JavaScript</a>
-        </li>
-        <li>
-          <a href="https://github.com/d3/d3/wiki/Gallery">Data visualizations with D3</a>
-        </li>
-        <li>
-          <a href="http://www.dear-data.com/">Dear Data: Everyday data visualizations</a>
-        </li>
-      </ul>
-
+        [The Data Visualization Catalogue](http://www.datavizcatalogue.com/)
+        [Data visualization with JavaScript](http://jsdatav.is/visuals.html)
+        [Data visualizations with D3](https://github.com/d3/d3/wiki/Gallery)
+        [Dear Data: Everyday data visualizations](http://www.dear-data.com/)
+      </script>
     </section>
 
 
@@ -1906,7 +1908,7 @@ Update exercises to actually make sense-->
         <li><a href="http://twitter.com/">@twitter</a></li>
       </ul> -->
 
-      <p class="attribution">Slide presentation created by <a href="http://wolfewylie.com">William Wolfe-Wylie</a> based on <a href="https://github.com/LeaVerou/csss">Lea Verou's SlideShow</a> and <a href="http://lab.hakim.se/reveal-js/">reveal.js</a>.</p>
+      <p class="attribution">Slide presentation created by <a href="http://wolfewylie.com">William Wolfe-Wylie</a> based on <a href="https://github.com/LeaVerou/csss">Lea Verou's SlideShow</a> and <a href="http://lab.hakim.se/reveal-js/">reveal.js</a>. Modified by Allen Chen</p>
     </section>
 
   </main><!-- cls main section -->
